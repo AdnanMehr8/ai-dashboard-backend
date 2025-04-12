@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors({
   // origin: 'http://localhost:3000', 
-  origin: 'https://ai-dashboard-taupe.vercel.app/', 
+  origin: 'https://ai-dashboard-taupe.vercel.app', 
 
   // credentials: true, 
 }));
@@ -41,6 +41,10 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
