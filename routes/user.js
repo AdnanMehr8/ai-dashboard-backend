@@ -4,7 +4,7 @@ const User = require('../models/user');
 const express = require('express');
 const router = express.Router();
 
-router.post('/users/register', async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
       const { username, password } = req.body;
       
@@ -48,7 +48,7 @@ router.post('/users/register', async (req, res) => {
   });
   
 
-  router.post('/users/login', async (req, res) => {
+  router.post('/login', async (req, res) => {
     try {
       const { username, password } = req.body;
       
