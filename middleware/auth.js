@@ -9,7 +9,6 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'No token, authorization denied' });
     }
     
-    // Add more validation for token format
     if (token === 'undefined' || token === 'null') {
       return res.status(401).json({ message: 'Invalid token format' });
     }
