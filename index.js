@@ -32,14 +32,14 @@ app.use('/api', userRoutes);
 app.use('/api', messageRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
-  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
-  res.json({ 
-    status: 'ok', 
-    database: dbStatus,
-    timestamp: new Date().toISOString()
-  });
-});
+// app.get('/api/health', (req, res) => {
+//   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+//   res.json({ 
+//     status: 'ok', 
+//     database: dbStatus,
+//     timestamp: new Date().toISOString()
+//   });
+// });
 
 // Local development server
 if (process.env.NODE_ENV !== 'production') {
