@@ -4,19 +4,18 @@ const generateAIResponse = require("../scripts/response");
 const express = require('express');
 const router = express.Router();
 
-// Add this to your message route
 router.get('/messages', auth, async (req, res) => {
-    // Set a timeout for the response
+    
     const timeout = setTimeout(() => {
       res.status(503).json({ error: 'Request timeout, please try again' });
-    }, 30000); // 30 seconds timeout
+    }, 30000);
     
     try {
       const messages = await Message.find({ user: req.user.id }).sort({ timestamp: 1 });
-      clearTimeout(timeout); // Clear the timeout
+      clearTimeout(timeout); 
       res.json(messages);
     } catch (error) {
-      clearTimeout(timeout); // Clear the timeout
+      clearTimeout(timeout); 
       console.error('Error fetching messages:', error);
       res.status(500).json({ error: 'Server error' });
     }
